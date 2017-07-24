@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+    <meta charset="UTF-8">
+    <title>the Onion Scraper</title>
+      <link rel="icon" type="image/png" href="./assets/img/favicon-32x32.png" sizes="32x32">
+        <!--Compiled and minified jquery-->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <!-- Latest compiled and minified JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" 
+            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" 
+            integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link rel="stylesheet" href="./assets/css/style.css" type="text/css" />
+	</head>
+	<body>
+		<nav class="navbar navbar-light bg-faded">
+    
+  <form class="form-inline">
+    
+    <button class="btn btn-outline-success" type="button" id="homeBtn"><span class="buttonText">Home</span></button>
+    <button class="btn btn-outline-success" type="button" id="scrapeBtn"><span class="buttonText">Scrape Articles</span></button>
+    <button class="btn btn-outline-success" type="button" id="savedBtn"><span class="buttonText">View Saved Articles</span></button> 
+  </form>
+</nav>
+
+{{!-- <div class="container"> --}}
+	<div class="jumbotron center-block">
+		<div class="row">
+			<div class="col-sm-12 col-md-12 text-center">
+				<div id="jumbotronTitle"><img src="./assets/img/onion_logo.png"></div>		
+				<div id="jumbotronSpan"> Scraper</div>
+			</div>
+		</div>
+		<div class="row">
+			<h2 class="text-center" id="jumbotronSubTitle">A MongoDB/Cheerio Webscaper
+		</div>
+	</div>
+
+
+{{!-- </div> --}}
+		{{{ body }}}
+
+	<script src="./assets/script/app.js"></script>
+	</body>
+</html>

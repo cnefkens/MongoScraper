@@ -1,0 +1,64 @@
+<div class="row" id="scrapedRow">
+    <div class='col-sm-1 col-md-1'></div>
+    <div class='col-sm-10 col-md-10'>
+              {{#each articles}}
+                 <div class="panel panel-default">
+                    <div class="panel-header">   
+                    </div>
+                     <div class='panel-body'>
+                            <form class="form" id="articleForm{{@index}}" action="/scrape" method="POST">
+                                <div class="form-group">
+                                    <label for="articleId">Article Id:</label>                
+                                    <input type="text" class="form-control articleId" name="_id" value="{{_id}}" readonly>
+                                </div>
+                                <div class="form-group">
+                                    <label for="articleHeadline">Headline:</label>                
+                                    <input type="text" class="form-control articleHeadline" name="headline" value="{{headline}}" readonly>
+                                </div>
+                                <div class="form-group">
+                                    <label for="articleSummary">Summary:</label>                
+                                    <textarea class="form-control articleSummary" form="articleForm{{@index}}" name="summary" readonly>{{summary}}</textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label for="articleLink">Link:</label>                
+                                    <input type="text" class="form-control articleLink" name="link" value="{{link}}" readonly>
+                                </div>
+                                <div class="form-group">
+                                    <label for="createDt">Create Dt:</label>                
+                                    <input type="text" class="form-control createDt" name="createdAt" value="{{createDt}}" readonly>
+                                </div>
+                                 {{#if articles.notes}}
+
+                                    {{!-- Article has comments so iterate over them  --}}
+                                        {{#each articles.notes}}
+                                            <form id="form-delete-{{_id}}" action="saved/?_method=DELETE" method="post">
+                                                <div class="form-group">
+                                                    <label for="articleId">Note Id:</label>                
+                                                <input type="text" class="form-control articleId" name="note_id" value="{{note_id}}" readonly>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="articleHeadline">Note:</label>                
+                                                    <input type="text" class="form-control articleHeadline" name="note" value="{{note}}" readonly>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="createDt">Create Dt:</label>                
+                                                    <input type="text" class="form-control createDt" name="createdAt" value="{{createDt}}" readonly>
+                                                </div>
+                                            
+                                                <div class="deleteNoteBtnDiv">
+                                                    <input class="btn-small delete-comment-button" data-id="{{_id}}" type="submit" value="Delete" style="color: white; background-color: red; border-color: red;">
+                                                </div>    
+                                                </form>
+                                          
+                                        {{/each}}
+                                          {{/if}}
+                                <div id="saveArticleBtnDiv">
+                                    <button type="submit" class="btn btn-default btn-saveArticle" style="background: green; color: white">Add Note</button>
+                                    <button type="submit" class="btn btn-default btn-saveArticle" style="background: green; color: white">Delete Article</button>
+                                </div>
+                            </form>
+                                </div>
+                            </div> 
+            {{/each}}
+        </div>   
+    </div>  

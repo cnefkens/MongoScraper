@@ -1,0 +1,111 @@
+body {
+  background-color: #6a5;
+}
+
+table,
+td {
+  border-color: black;
+  border-style: solid;
+  border-width: 1px;
+}
+
+table {
+  width: 500px;
+  background-color: antiquewhite;
+}
+
+td {
+  padding: 15px;
+  text-align: center;
+}
+
+#brand {
+  margin-top: 15px;
+  font-weight: bold;
+}
+
+
+.navbar {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  text-align: center;
+}
+button, .btn {
+  width: 150px;
+  height: 50px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  font-weight: bold;
+
+}
+
+.buttonText {
+  white-space: normal;
+  display: block;
+  overflow: hidden;
+  word-wrap:break-word;
+  text-overflow: ellipsis;
+
+}
+
+#jumbotronTitle {
+  height: 92px;
+  line-height: 92px; 
+  display: inline-block;
+}
+
+#jumbotronSpan {
+  display: inline-block;
+   height: 92px;
+  line-height: 92px;
+  padding-bottom: 0px;
+  margin-bottom: 0px;
+  padding-top: 15px;
+   font-weight: bold; 
+  font-size: 78px;
+  margin-left: 5px;
+   /* float: left;  */
+  vertical-align: bottom;
+  text-align: center;
+
+}
+
+
+#jumbotronSubTitle {
+  font-size: 42px;
+}
+  /* .jumbotron {
+  background-image: url("../img/onion_logo.png");
+   background-size: cover; 
+  background-repeat: no-repeat;
+   background-position: center top; 
+}   */
+
+input {
+  height: auto;
+  width:auto;
+  overflow-wrap: break-word;
+  font-size: 18px;
+}
+
+label {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.articleSummary, .articleHeadline, .articleLink, .createDt {
+  overflow-wrap: break-word;
+    font-size: 18px;
+}
+
+textarea {
+  overflow: hidden;
+}
+
+#saveArticleBtnDiv {
+  text-align: center;
+}
+
+.active {
+  color: red;
+}

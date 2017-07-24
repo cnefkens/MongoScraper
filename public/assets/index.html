@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>the Onion Scraper</title>
+      <link rel="icon" type="image/png" href="./img/favicon-32x32.png" sizes="32x32">
+        <!--Compiled and minified jquery-->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <!-- Latest compiled and minified JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" 
+            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <script src="./script/app.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" 
+            integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link rel="stylesheet" href="./css/style.css" type="text/css" />
+  </head>
+  <body>
+
+<nav class="navbar navbar-light bg-faded">
+    
+  <form class="form-inline">
+    
+    <button class="btn btn-outline-success" type="button" id="homeBtn"><span class="buttonText">Home</span></button>
+    <button class="btn btn-outline-success" type="button" id="scrapeBtn"><span class="buttonText">Scrape Articles</span></button>
+    <button class="btn btn-outline-success" type="button" id="savedBtn"><span class="buttonText">View Saved Articles</span></button> 
+  </form>
+</nav>
+
+<div class="jumbotron center-block">
+  <div class="text-center" id="jumbotronTitle"><img src="./img/onion_logo.png"><span id="jumbotronSpan"> Scraper
+
+  </span></div>
+  <h2 class="text-center" id="jumbotronSubTitle">A MongoDB/Cheerio Webscaper
+</div>
+     
+<div class="container">
+
+  <div class="row" id=> 
+
+
+  </div>
+
+  
+  <div class="modal">
+    <table id="results">
+      <thead>
+        <tr>
+          <th id="article-summary">Name</th>
+          <th id="article-link">Num Legs</th>
+          <th id="animal-class">Class</th>
+          <th id="animal-weight">Weight</th>
+          <th id="animal-new-name">But I'd Call It...</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Results from DB here -->
+      </tbody>
+    </table>
+   </div> 
+ </div>   
+</div>
+  </body>
+</html>
