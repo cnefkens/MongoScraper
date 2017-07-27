@@ -36,8 +36,23 @@ button, .btn {
   margin-top: 15px;
   margin-bottom: 15px;
   font-weight: bold;
-
+ 
+  /* background: #6a5;
+  color: white; */
 }
+
+.btn-saveArticle, .btn-deleteArticle, .btn-addNote {
+    background: #6a5;
+  color: white; 
+}
+
+ /* .btn-deleteArticle {
+   background: red; 
+ }
+
+ .btn-addNote {
+   background: blue;
+ } */
 
 .buttonText {
   white-space: normal;
@@ -45,7 +60,10 @@ button, .btn {
   overflow: hidden;
   word-wrap:break-word;
   text-overflow: ellipsis;
+}
 
+#closeNoteModalBtn, #saveNoteBtn {
+  vertical-align: inherit;
 }
 
 #jumbotronTitle {
@@ -54,6 +72,19 @@ button, .btn {
   display: inline-block;
 }
 
+#addNoteForm {
+  margin: 10px;
+}
+
+.modal-header, .modal-footer {
+  background: #6a5;
+}
+ .modal-title {
+   color: white;
+   font-size: 32px;
+   font-weight: bold;
+   vertical-align: middle;
+ }
 #jumbotronSpan {
   display: inline-block;
    height: 92px;
@@ -93,7 +124,7 @@ label {
   font-weight: bold;
 }
 
-.articleSummary, .articleHeadline, .articleLink, .createDt {
+.articleId, .articleSummary, .articleHeadline, .articleLink, .createDt {
   overflow-wrap: break-word;
     font-size: 18px;
 }
@@ -109,3 +140,35 @@ textarea {
 .active {
   color: red;
 }
+
+.panel-notes, .form-delete {
+  font-size: 16px;
+}
+
+.noteId, .articleNote, .note-createDt  {
+  font-size: 16px;
+}
+
+.panel-notes-header {
+  margin-left: 20px;
+  margin-top: 10px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.label-notes {
+  font-size: 16px;
+}
+
+.delete-note-button {
+  color: white; 
+  background-color: red; 
+  border-color: red;
+}
+
+.delete-note-button {
+  width: 100px;
+  height: 40px;
+}
+
+

@@ -19,7 +19,8 @@
   <form class="form-inline">
     
     <button class="btn btn-outline-success" type="button" id="homeBtn"><span class="buttonText">Home</span></button>
-    <button class="btn btn-outline-success" type="button" id="scrapeBtn"><span class="buttonText">Scrape Articles</span></button>
+    <button class="btn btn-outline-success" type="button" id="newScrapeBtn"><span class="buttonText">New Scrape Articles</span></button>
+		<button class="btn btn-outline-success" type="button" id="viewScrapeBtn"><span class="buttonText">View Scraped Articles</span></button>
     <button class="btn btn-outline-success" type="button" id="savedBtn"><span class="buttonText">View Saved Articles</span></button> 
   </form>
 </nav>
@@ -41,6 +42,24 @@
 {{!-- </div> --}}
 		{{{ body }}}
 
+  <!-- Modal -->
+  {{!-- <div class="modal fade" id="scrapeCntModal" role="dialog">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Scrape Complete!r</h4>
+        </div>
+        <div class="modal-body">
+          <p id='scrapeCntModalMsg'>## records have been scraped from the Onion.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> --}}
 	<script src="./assets/script/app.js"></script>
 	</body>
 </html>

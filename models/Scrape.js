@@ -4,7 +4,7 @@ var mongoose = require("mongoose");
 var Schema = mongoose.Schema;
 
 // Create article schema
-var ArticleSchema = new Schema({
+var ScrapeSchema = new Schema({
   // title is a required string
   headline: {
     type: String,
@@ -23,16 +23,15 @@ var ArticleSchema = new Schema({
     type: Date,
     required: true
   },
-    notes: [{
-    type: Schema.Types.ObjectId,
-    ref: 'Note'
-}]
-  // This only saves one note's ObjectId, ref refers to the Note model
+    savedFlag: {
+    type: Boolean,
+    default: 0
+  }
 
 });
 
-// Create the Article model with the ArticleSchema
-var Article = mongoose.model("Article", ArticleSchema);
+// Create the Scrape model with the ScrapeSchema
+var Scrape = mongoose.model("Scrape", ScrapeSchema);
 
 // Export the model
-module.exports = Article;
+module.exports = Scrape;

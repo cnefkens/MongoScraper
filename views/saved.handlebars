@@ -1,12 +1,13 @@
 <div class="row" id="scrapedRow">
     <div class='col-sm-1 col-md-1'></div>
     <div class='col-sm-10 col-md-10'>
+        <h3>Saved Articles Count: {{articles.length}}</h3>
               {{#each articles}}
                  <div class="panel panel-default">
                     <div class="panel-header">   
                     </div>
                      <div class='panel-body'>
-                            <form class="form" id="articleForm{{@index}}" action="/scrape" method="POST">
+                            <form class="form" id="articleForm{{@index}}" action="/saved?_method=DELETE" method="POST">
                                 <div class="form-group">
                                     <label for="articleId">Article Id:</label>                
                                     <input type="text" class="form-control articleId" name="_id" value="{{_id}}" readonly>
@@ -27,38 +28,92 @@
                                     <label for="createDt">Create Dt:</label>                
                                     <input type="text" class="form-control createDt" name="createdAt" value="{{createDt}}" readonly>
                                 </div>
-                                 {{#if articles.notes}}
-
+                                 </form>
+                                 {{#if notes}}
+                                         <div class="panel panel-default panel-notes">
+                                        <div class="panel-header panel-notes-header" id="panel-notes{{@index}}">Article Notes:</div>
+                                        <div class='panel-body'>
                                     {{!-- Article has comments so iterate over them  --}}
-                                        {{#each articles.notes}}
-                                            <form id="form-delete-{{_id}}" action="saved/?_method=DELETE" method="post">
-                                                <div class="form-group">
-                                                    <label for="articleId">Note Id:</label>                
-                                                <input type="text" class="form-control articleId" name="note_id" value="{{note_id}}" readonly>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label for="articleHeadline">Note:</label>                
-                                                    <input type="text" class="form-control articleHeadline" name="note" value="{{note}}" readonly>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label for="createDt">Create Dt:</label>                
-                                                    <input type="text" class="form-control createDt" name="createdAt" value="{{createDt}}" readonly>
-                                                </div>
-                                            
-                                                <div class="deleteNoteBtnDiv">
-                                                    <input class="btn-small delete-comment-button" data-id="{{_id}}" type="submit" value="Delete" style="color: white; background-color: red; border-color: red;">
-                                                </div>    
-                                                </form>
-                                          
+                                        {{#each notes}}
+                                                     
+                                                     <form class="form-delete" id="form-delete-{{@index}}" action="/notes?_method=DELETE" method="POST">
+                                                        <div class="form-group row">              
+                                                        <input type="hidden" class="form-control articleId" name="article_id" value="{{article_id}}" readonly>
+                                                        </div>
+                                                        <div class="form-group row">
+                                                        <div class="col-xs-1"></div>    
+                                                        <label class="col-xs-2 label-notes" for="noteId">Note Id:</label>   
+                                                           <div class="col-xs-8">             
+                                                            <input type="text" class="form-control noteId col-sm-10" name="_id" value="{{_id}}" readonly>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group row">
+                                                            <div class="col-xs-1"></div>  
+                                                            <label class="col-xs-2 label-notes" for="articleNote">Note:</label>    
+                                                            <div class="col-xs-8">             
+                                                                <textarea class="form-control articleNote" form="form-delete-{{@index}}" name="note" readonly>{{note}}</textarea>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group row">
+                                                            <div class="col-xs-1"></div>  
+                                                            <label class="col-xs-2 label-notes" for="createDt">Create Dt:</label>
+                                                            <div class="col-xs-8">                   
+                                                                <input type="text" class="form-control note-createDt" name="createdDt" value="{{createDt}}" readonly>
+                                                            </div>
+                                                        </div>
+                                                       
+                                                    
+                                                        <div class="deleteNoteBtnDiv">
+                                                            <div class="col-xs-1"></div>
+                                                            <button type="submit" class="btn btn-md delete-note-button"  form="form-delete-{{@index}}" >Delete</button>
+                                                        </div>    
+                                                         </form>
+                                                     
+                                                        <hr>
+                                                
                                         {{/each}}
-                                          {{/if}}
+                                        {{!-- <div class="panel-footer"></div> --}}
+                                        </div>
+                                        </div>
+                                    {{/if}}
                                 <div id="saveArticleBtnDiv">
-                                    <button type="submit" class="btn btn-default btn-saveArticle" style="background: green; color: white">Add Note</button>
-                                    <button type="submit" class="btn btn-default btn-saveArticle" style="background: green; color: white">Delete Article</button>
+                                    <button type="button" class="btn btn-default btn-addNote" data-value="{{_id}}" data-toggle="modal" data-target="#notesModal" form="articleForm{{@index}}">Add Note</button>
+                                    <button type="submit" class="btn btn-default btn-deleteArticle" form="articleForm{{@index}}">Delete Article</button>
                                 </div>
-                            </form>
-                                </div>
-                            </div> 
+                           
+                        </div>
+                    </div> 
             {{/each}}
         </div>   
     </div>  
+
+
+<!-- Modal -->
+<div id="notesModal" class="modal fade" role="dialog">
+   <div class="modal-dialog"> 
+
+    <!-- Modal content-->
+    <div class="modal-content">
+        <div class="modal-header">
+                {{!-- <button type="button" class="close" data-dismiss="modal">&times;</button> --}}
+                <p class="modal-title">Add Article Note</p>
+        </div>
+        <div class="modal-body">
+                <form class="form" id="addNoteForm"  action="/notes" method="POST">
+                    <div class="form-group">             
+                            <input type="hidden" class="form-control articleId" id="newnote-articleId" name="article_id" value="" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label for="newNote">New Note:</label>                
+                        <textarea class="form-control newNote" form="addNoteForm" name="newNote" placeholder="Enter Text Here"></textarea>
+                    </div>
+                
+                </form>
+        </div>
+        <div class="modal-footer">
+                <button type="submit" class="btn btn-default" id="saveNoteBtn" form="addNoteForm">Save</button>
+                <button type="button" class="btn btn-default" id="closeNoteModalBtn" data-dismiss="modal">Close</button>
+        </div>
+    </div>
+     </div> 
+ </div>

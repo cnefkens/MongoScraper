@@ -14,7 +14,11 @@ var NoteSchema = new Schema({
   createDt: {
     type: Date,
     required: true
-  }
+  },
+    article_id: { 
+    type: String,
+    index: true
+}
 });
 
 // Remember, Mongoose will automatically save the ObjectIds of the notes

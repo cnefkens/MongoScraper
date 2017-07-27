@@ -3,6 +3,7 @@ var mongojs = require("mongojs");
 var mongoose = require("mongoose");
 var Note = require("./models/Note.js");
 var Article = require("./models/Article.js");
+var Scrape = require("./models/Scrape.js");
 // Require request and cheerio. This makes the scraping possible
 var request = require("request");
 var cheerio = require("cheerio");
@@ -50,12 +51,11 @@ app.set("view engine", "handlebars");
 
 // Database configuration
 
-const routes = require('./routes/routes.js')(express,request, cheerio, db, exphbs, Note, Article, app);
+const routes = require('./routes/routes.js')(express,request, cheerio, db, exphbs, Scrape, Article, Note, app);
 // Main route (simple Hello World Message)
 app.use('/',routes);
 app.use('/saved',routes);
-app.use('/articles/articleId',routes);
-app.use('/notes/noteId',routes);
+app.use('/notes',routes);
 app.use('/scrape',routes);
 
 app.listen(PORT, function() {
