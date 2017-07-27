@@ -15,7 +15,7 @@ var databaseUri='mongodb://localhost/mongoscraper';
 
 // Connect to localhost if not a production environment
 if(process.env.MONGODB_URI) {
-  mongoose.connect(process.env.MONGODB_UR);
+  mongoose.connect(process.env.MONGODB_URI);
 }
 else{
   mongoose.connect(databaseUri);
